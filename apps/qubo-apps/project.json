@@ -23,7 +23,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "qubo-apps:build",
-        "dev": true
+        "dev": true,
+        "proxyConfig": "apps/qubo-apps/proxy.conf.json"
       },
       "configurations": {
         "development": {

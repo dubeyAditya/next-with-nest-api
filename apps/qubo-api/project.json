@@ -1,0 +1,57 @@
+{
+  "name": "qubo-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/qubo-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/qubo-api",
+        "main": "apps/qubo-api/src/main.ts",
+        "tsConfig": "apps/qubo-api/tsconfig.app.json",
+        "assets": ["apps/qubo-api/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/qubo-api/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "qubo-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "qubo-api:build:development"
+        },
+        "production": {
+          "buildTarget": "qubo-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/qubo-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/qubo-api/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

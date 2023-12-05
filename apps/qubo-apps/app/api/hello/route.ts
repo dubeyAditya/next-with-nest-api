@@ -1,3 +1,7 @@
 export async function GET(request: Request) {
-  return new Response('Hello, from API!');
+  const res = await fetch('http://localhost:4000/api/hello');
+  const data = await res.text();
+  return new Response(data.trim(), {
+    status: 200,
+  });
 }

@@ -1,3 +1,4 @@
+import Hello from './Hello';
 import styles from './page.module.scss';
 
 export default async function Index() {
@@ -10,12 +11,7 @@ export default async function Index() {
     <div className={styles.page}>
       <div className="wrapper">
         <div className="container">
-          <div id="welcome">
-            <h1>
-              <span> Hello there, </span>
-              Welcome qubo-apps 👋
-            </h1>
-          </div>
+          <Hello></Hello>
 
           <div id="hero" className="rounded">
             <div className="text-container">
