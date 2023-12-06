@@ -6,12 +6,11 @@ export default function Hello() {
   const [message, setMessage] = useState('Hi from Next');
 
   useEffect(() => {
-    (
-      fetch('/api/hello')
-      .then((res: any) => res.json()))
-      .then((data: any) => {
-        setMessage(data.message);
-      });
+      // fetch('/api/hello')
+      // .then((res: any) => res.json())
+      // .then((data: any) => {
+      //   setMessage(data.message);
+      // });
   }, []);
 
 
